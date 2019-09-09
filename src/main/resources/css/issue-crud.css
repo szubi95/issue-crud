@@ -1,0 +1,12 @@
+#rest-table th span {
+    color: red !important;
+    outline: 1px solid red !important;
+    background-color: aqua !important;
+    padding: 10px;
+}
+
+#rest-table th span span {
+    color: green !important;
+    outline: 1px solid green !important;
+    background-color: black !important;
+}

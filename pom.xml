@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.plugins.tutorial</groupId>
+    <artifactId>issue-crud</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <organization>
+        <name>Example Company</name>
+    </organization>
+    <name>issue-crud</name>
+    <description>This is the com.example.plugins.tutorial:issue-crud plugin for Atlassian JIRA.</description>
+    <packaging>atlassian-plugin</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-api</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>${servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.templaterenderer</groupId>
+            <artifactId>atlassian-template-renderer-api</artifactId>
+            <version>${template-renderer.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.plugins.rest</groupId>
+            <artifactId>atlassian-rest-common</artifactId>
+            <version>${atlassian-rest-common.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-jira-plugin</artifactId>
+                <version>${amps.version}</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <productVersion>${jira.version}</productVersion>
+                    <productDataVersion>${jira.version}</productDataVersion>
+                    <!-- make AMPS faster -->
+                    <enableDevToolbox>false</enableDevToolbox>
+                    <enablePde>false</enablePde>
+                    <skipRestDocGeneration>true</skipRestDocGeneration>
+                    <allowGoogleTracking>false</allowGoogleTracking>
+                    <skipManifestValidation>true</skipManifestValidation>
+                    <extractDependencies>false</extractDependencies>
+
+                    <!-- On AMPS 6.3 and older; must be omitted on AMPS 8 and newer -->
+                    <enableFastdev>false</enableFastdev>
+                    <enableQuickReload>true</enableQuickReload>
+                    <jvmArgs>-Dplugin.resource.directories=/src/main/resources</jvmArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <jira.version>7.1.10</jira.version>
+        <amps.version>6.2.6</amps.version>
+        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+        <testkit.version>6.3.11</testkit.version>
+        <lombok.version>1.18.8</lombok.version>
+        <atlassian-rest-common.version>1.0.2</atlassian-rest-common.version>
+        <template-renderer.version>3.0.0</template-renderer.version>
+        <servlet-api.version>2.5</servlet-api.version>
+        <timestamp>${maven.build.timestamp}</timestamp>
+    </properties>
+</project>

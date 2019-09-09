@@ -1,0 +1,22 @@
+<html lang="pl">
+<head>
+    <title>All Tutorial Issues &mdash; Issue CRUD Tutorial</title>
+    <meta name="decorator" content="atl.general"/>
+
+    $webResourceManager.requireResource("com.example.plugins.tutorial.issue-crud:events-restful-table-script")
+</head>
+<body>
+
+    <form class="aui" action="#">
+        <div class="field-group">
+            <label for="searchInput">Search: </label>
+            <input class="text long-field" type="text" id="searchInput" placeholder="Search for DISTRIBUTIONNAME"/>
+        </div>
+    </form>
+
+    <table id="rest-table" class="aui aui-table-sortable"></table>
+
+    $webResourceManager.requireResource("com.example.plugins.tutorial.issue-crud:events-search")
+
+</body>
+</html>

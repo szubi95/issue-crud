@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="issue-crud"/>
+
+<!--    <web-item key="events-link" name="Events" section="system.top.navigation.bar" weight="10">-->
+<!--        <label key="events.label"/>-->
+<!--        <link linkId="events-page">/plugins/servlet/issuecrud</link>-->
+<!--        <condition class="com.atlassian.jira.plugin.webfragment.conditions.UserLoggedInCondition"/>-->
+<!--    </web-item>-->
+
+    <!--  <web-resource key="my-rest-resource-resources" name="my-rest-resource-resources">-->
+    <!--      <resource type="download" name="issue-crud.css" location="/css/issue-crud.css"/>-->
+    <!--      <resource type="download" name="issue-crud.js" location="/js/issue-crud.js"/>-->
+    <!--      <resource type="download" name="images/" location="/images"/>-->
+    <!--      <resource type="download" name="events-restful-table.js" location="/js/events-restful-table.js"/>-->
+    <!--  </web-resource>-->
+
+    <web-resource key="events-restful-table-script" name="events-restful-table-script">
+        <resource type="download" name="issue-crud.css" location="/css/issue-crud.css"/>
+        <resource type="download" name="events-restful-table.js" location="/js/events-restful-table.js"/>
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.auiplugin:aui-experimental-restfultable</dependency>
+        <dependency>com.atlassian.auiplugin:aui-date-picker</dependency>
+        <dependency>com.atlassian.auiplugin:aui-table-sortable</dependency>
+    </web-resource>
+
+    <web-resource key="events-search" name="events-search">
+        <resource type="download" name="search.js" location="/js/search.js"/>
+    </web-resource>
+
+    <servlet name="Issue CRUD" i18n-name-key="issue-crud.name" key="issue-crud" class="com.example.plugins.tutorial.servlet.ViewInitializerServlet">
+        <url-pattern>/issuecrud</url-pattern>
+    </servlet>
+
+    <rest name="My Rest Resource" i18n-name-key="my-rest-resource.name" key="my-rest-resource" path="/myrestresource" version="1.0"/>
+    <component-import key="renderer" interface="com.atlassian.templaterenderer.velocity.one.six.VelocityTemplateRenderer"/>
+</atlassian-plugin>
