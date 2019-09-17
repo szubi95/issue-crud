@@ -7,6 +7,37 @@
 </head>
 <body>
 
+<section role="dialog" id="demo-dialog" class="aui-layer aui-dialog2 aui-dialog2-medium" aria-hidden="true">
+
+    <header class="aui-dialog2-header">
+
+        <h2 class="aui-dialog2-header-main">Always use sentence case</h2>
+
+        <a class="aui-dialog2-header-close">
+            <span class="aui-icon aui-icon-small aui-iconfont-close-dialog">Close</span>
+        </a>
+    </header>
+    <div class="aui-dialog2-content">
+        <p>Hello World</p>
+    </div>
+    <footer class="aui-dialog2-footer">
+        <div class="aui-dialog2-footer-actions">
+            <button id="confirm" class="aui-button aui-button-primary">Confirm</button>
+            <a class="aui-dialog2-header-close">
+                <button id="cancel" class="aui-button">Cancel</button>
+            </a>
+        </div>
+        <div class="aui-dialog2-footer-hint">this is a hint</div>
+    </footer>
+</section>
+
+
+
+<div id="aui-message-bar"></div>
+
+
+    <input type="hidden" id="editFlag" name="editFlag" value="true">
+
     <form class="aui" action="#">
         <div class="field-group">
             <label for="searchInput">Search: </label>

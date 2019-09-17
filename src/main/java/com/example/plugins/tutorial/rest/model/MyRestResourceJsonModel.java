@@ -24,6 +24,9 @@ public class MyRestResourceJsonModel {
     @JsonProperty("title")
     private String title;
 
+    @JsonProperty("isGood")
+    private Boolean isGood;
+
     @JsonProperty("distributionDate")
     private String distributionDate;
 }
