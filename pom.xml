@@ -5,6 +5,7 @@
     <groupId>com.example.plugins.tutorial</groupId>
     <artifactId>issue-crud</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+<!--    <packaging>jar</packaging>-->
     <organization>
         <name>Example Company</name>
     </organization>
@@ -42,6 +43,13 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.48</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -54,6 +62,34 @@
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
                     <productDataVersion>${jira.version}</productDataVersion>
+
+                    <instanceId>jira50</instanceId>
+                    <products>
+                        <product>
+                            <id>jira</id>
+                            <instanceId>jira50</instanceId>      
+                            <version>${jira.version}</version>
+                            <dataVersion>${jira.version}</dataVersion>          
+                            <dataPath>${basedir}/src/main/resources</dataPath>           
+                            <dataSources>         
+                                <dataSource>              
+                                    <jndi>jdbc/JiraDS</jndi>         
+                                    <url>jdbc:mysql://145.239.95.34:3306/jiradb</url>           
+                                    <driver>com.mysql.jdbc.Driver</driver>      
+                                    <username>root</username>
+                                    <password>121212</password> 
+                                    <libArtifacts>               
+                                        <libArtifact>                 
+                                            <groupId>mysql</groupId>            
+                                            <artifactId>mysql-connector-java</artifactId>       
+                                            <version>5.1.48</version>             
+                                        </libArtifact>         
+                                    </libArtifacts>      
+                                </dataSource>
+                            </dataSources>
+                        </product>
+                    </products>
+
                     <!-- make AMPS faster -->
                     <enableDevToolbox>false</enableDevToolbox>
                     <enablePde>false</enablePde>
@@ -66,6 +102,14 @@
                     <enableFastdev>false</enableFastdev>
                     <enableQuickReload>true</enableQuickReload>
                     <jvmArgs>-Dplugin.resource.directories=/src/main/resources</jvmArgs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
