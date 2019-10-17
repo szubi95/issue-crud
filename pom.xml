@@ -74,10 +74,10 @@
                             <dataSources>         
                                 <dataSource>              
                                     <jndi>jdbc/JiraDS</jndi>         
-                                    <url>jdbc:mysql://145.239.95.34:3306/jiradb</url>           
+                                    <url>jdbc:mysql://localhost:3306/jiradb</url>           
                                     <driver>com.mysql.jdbc.Driver</driver>      
                                     <username>root</username>
-                                    <password>121212</password> 
+                                    <password>pass</password> 
                                     <libArtifacts>               
                                         <libArtifact>                 
                                             <groupId>mysql</groupId>            
